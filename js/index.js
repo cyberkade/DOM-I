@@ -61,10 +61,10 @@ const headerImg = document.querySelector('#cta-img');
 headerImg.src = siteContent['cta']['img-src']
 
 const h1 = document.querySelector('.cta-text h1');
-const newline = "\n";
-h1.style.whiteSpace = 'pre'
-h1.textContent = 'DOM' + newline + 'IS' + newline + 'AWESOME';
-// h1.innerHTML = 'DOM </br> Is </br> Awesome';
+// const newline = "\n";
+// h1.style.whiteSpace = 'pre'
+// h1.textContent = 'DOM' + newline + 'IS' + newline + 'AWESOME';
+h1.innerHTML = 'DOM </br> Is </br> Awesome';
 
 
 const btn = document.querySelector('.cta-text button:nth-of-type(1)');
@@ -77,6 +77,9 @@ h4[1].textContent = siteContent['main-content']['about-h4'];
 h4[2].textContent = siteContent['main-content']['services-h4'];
 h4[3].textContent = siteContent['main-content']['product-h4'];
 h4[4].textContent = siteContent['main-content']['vision-h4'];
+// Alternate option
+// const bottomHeaders = document.body.querySelectorAll('.bottom-content h4');
+// bottomHeaders[0].textContent = siteContent['main-content']['services-h4'];
 
 const p = document.querySelectorAll('p');
 p[0].textContent = siteContent['main-content']['features-content'];
@@ -84,6 +87,9 @@ p[1].textContent = siteContent['main-content']['about-content'];
 p[2].textContent = siteContent['main-content']['services-content'];
 p[3].textContent = siteContent['main-content']['product-content'];
 p[4].textContent = siteContent['main-content']['vision-content'];
+// Alternate option
+// const bottomPars = document.body.querySelectorAll('.bottom-content p');
+// bottomPars[0].textContent = siteContent['main-content']['services-content'];
 
 const mainImg = document.querySelector('#middle-img');
 mainImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
@@ -92,8 +98,9 @@ const contactHeader = document.querySelector('.contact h4');
 contactHeader.textContent = siteContent['contact']['contact-h4']
 
 const addressP = document.querySelectorAll('.contact p')
-addressP[0].style.whiteSpace = 'pre'
-addressP[0].textContent = '123 Way 456 Street' + newline + 'Somewhere, USA';
+// addressP[0].style.whiteSpace = 'pre'
+// addressP[0].textContent = '123 Way 456 Street' + newline + 'Somewhere, USA';
+addressP[0].innerHTML = '123 Way 456 Street </br> Somewhere, USA'
 addressP[1].textContent = siteContent['contact']['phone'];
 addressP[2].textContent = siteContent['contact']['email'];
 
@@ -102,16 +109,8 @@ contact.nextElementSibling.textContent = siteContent['footer']['copyright']
 
 // STRETCH //
 const data = {
-  "nav": {
-    "nav-item-1": "Product",
-    "nav-item-2": "Services",
-    "nav-item-3": "About",
-    "nav-item-4": "Contact",
-    "nav-item-5": "Vision",
-    "nav-item-6": "Featured",
-  },
   "cta": {
-    "h1": "DOM Is My Enemy",
+    "h1": "DOM Is Evil",
     "button": "Get Started",
     "img-src": "img/header-img.png"
   },
@@ -122,11 +121,9 @@ const data = {
   "contact": {
     "contact-h4" : "Contact",
     "address" : "321 Way 654 Street Anywhere, Japan",
-    "phone" : "1 (888) 888-8888",
-    "email" : "sales@greatidea.io",
   },
   "footer": {
-    "copyright" : "Copyright Great Idea! 2018"
+    "copyright" : "Copyright Great Idea! 20"
   },
 };
 btn.addEventListener('click',(e)=>{
