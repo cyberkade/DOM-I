@@ -61,14 +61,15 @@ const headerImg = document.querySelector('#cta-img');
 headerImg.src = siteContent['cta']['img-src']
 
 const h1 = document.querySelector('.cta-text h1');
-// h1.textContent = siteContent['cta']['h1'];
-h1.innerHTML = 'DOM </br> Is </br> Awesome';
+const newline = "\n";
+h1.style.whiteSpace = 'pre'
+h1.textContent = 'DOM' + newline + 'IS' + newline + 'AWESOME';
+// h1.innerHTML = 'DOM </br> Is </br> Awesome';
 
 
 const btn = document.querySelector('.cta-text button:nth-of-type(1)');
 btn.textContent = siteContent['cta']['button'];
 btn.style.borderRadius = '20px';
-// btn:hover.style.backgroundColor = 'red';
 
 const h4 = document.querySelectorAll('h4');
 h4[0].textContent = siteContent['main-content']['features-h4'];
@@ -91,8 +92,8 @@ const contactHeader = document.querySelector('.contact h4');
 contactHeader.textContent = siteContent['contact']['contact-h4']
 
 const addressP = document.querySelectorAll('.contact p')
-// addressP[0].textContent = siteContent['contact']['address'];
-addressP[0].innerHTML = '123 Way 456 Street </br> Somewhere, USA'
+addressP[0].style.whiteSpace = 'pre'
+addressP[0].textContent = '123 Way 456 Street' + newline + 'Somewhere, USA';
 addressP[1].textContent = siteContent['contact']['phone'];
 addressP[2].textContent = siteContent['contact']['email'];
 
