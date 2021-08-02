@@ -42,18 +42,42 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 const navLinks = document.querySelectorAll('a');
-navLinks[0].textContent = siteContent['nav']['nav-item-1']
-navLinks[1].textContent = siteContent['nav']['nav-item-2']
-navLinks[2].textContent = siteContent['nav']['nav-item-3']
-navLinks[3].textContent = siteContent['nav']['nav-item-4']
-navLinks[4].textContent = siteContent['nav']['nav-item-5']
-navLinks[5].textContent = siteContent['nav']['nav-item-6']
+// navLinks[0].textContent = siteContent['nav']['nav-item-1']
+// navLinks[1].textContent = siteContent['nav']['nav-item-2']
+// navLinks[2].textContent = siteContent['nav']['nav-item-3']
+// navLinks[3].textContent = siteContent['nav']['nav-item-4']
+// navLinks[4].textContent = siteContent['nav']['nav-item-5']
+// navLinks[5].textContent = siteContent['nav']['nav-item-6']
+
+navLinks.forEach((item, index)=>  item.textContent = siteContent['nav'][`nav-item-${[index + 1]}`])
 
 const headerImg = document.querySelector('#cta-img');
-headerImg.setAttribute('src', siteContent['cta']['img-src'])
+headerImg.src = siteContent['cta']['img-src']
 
-const h1 = document.querySelector('h1');
+const h1 = document.querySelector('.cta-text h1');
 h1.textContent = siteContent['cta']['h1'];
 
-const btn = document.querySelector('button:nth-of-type(1)');
+const btn = document.querySelector('.cta-text button:nth-of-type(1)');
 btn.textContent = siteContent['cta']['button'];
+
+const topH4 = document.querySelectorAll('.top-content h4');
+console.log(topH4);
+topH4[0].textContent = siteContent['main-content']['features-h4'];
+topH4[1].textContent = siteContent['main-content']['about-h4'];
+
+const topP = document.querySelectorAll('.top-content p');
+topP[0].textContent = siteContent['main-content']['features-content'];
+topP[1].textContent = siteContent['main-content']['about-content'];
+
+const mainImg = document.querySelector('#middle-img');
+mainImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
+
+const bottomH4 = document.querySelectorAll('.bottom-content h4');
+bottomH4[0].textContent = siteContent['main-content']['services-h4'];
+bottomH4[1].textContent = siteContent['main-content']['product-h4'];
+bottomH4[2].textContent = siteContent['main-content']['vision-h4'];
+
+const bottomP = document.querySelectorAll('.bottom-content p');
+bottomP[0].textContent = siteContent['main-content']['services-content'];
+bottomP[1].textContent = siteContent['main-content']['product-content'];
+bottomP[2].textContent = siteContent['main-content']['vision-content'];
