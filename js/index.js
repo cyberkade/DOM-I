@@ -42,7 +42,20 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 const navLinks = document.querySelectorAll('a');
-navLinks.forEach((item, index)=>  item.textContent = siteContent['nav'][`nav-item-${[index + 1]}`])
+navLinks.forEach((item, index)=>  {
+  item.textContent = siteContent['nav'][`nav-item-${[index + 1]}`];
+  item.style.color = 'green';
+})
+
+const nav = document.querySelector('nav');
+const myLink1 = document.createElement('a');
+const myLink2 = document.createElement('a');
+myLink1.textContent = 'Investors';
+myLink2.textContent = 'Get A Quote';
+myLink1.style.color = 'green'
+myLink2.style.color = 'green'
+nav.appendChild(myLink1);
+nav.prepend(myLink2);
 
 const headerImg = document.querySelector('#cta-img');
 headerImg.src = siteContent['cta']['img-src']
@@ -55,27 +68,23 @@ h1.innerHTML = 'DOM </br> Is </br> Awesome';
 const btn = document.querySelector('.cta-text button:nth-of-type(1)');
 btn.textContent = siteContent['cta']['button'];
 
-const topH4 = document.querySelectorAll('.top-content h4');
-console.log(topH4);
-topH4[0].textContent = siteContent['main-content']['features-h4'];
-topH4[1].textContent = siteContent['main-content']['about-h4'];
 
-const topP = document.querySelectorAll('.top-content p');
-topP[0].textContent = siteContent['main-content']['features-content'];
-topP[1].textContent = siteContent['main-content']['about-content'];
+const h4 = document.querySelectorAll('h4');
+h4[0].textContent = siteContent['main-content']['features-h4'];
+h4[1].textContent = siteContent['main-content']['about-h4'];
+h4[2].textContent = siteContent['main-content']['services-h4'];
+h4[3].textContent = siteContent['main-content']['product-h4'];
+h4[4].textContent = siteContent['main-content']['vision-h4'];
+
+const p = document.querySelectorAll('p');
+p[0].textContent = siteContent['main-content']['features-content'];
+p[1].textContent = siteContent['main-content']['about-content'];
+p[2].textContent = siteContent['main-content']['services-content'];
+p[3].textContent = siteContent['main-content']['product-content'];
+p[4].textContent = siteContent['main-content']['vision-content'];
 
 const mainImg = document.querySelector('#middle-img');
 mainImg.setAttribute('src', siteContent['main-content']['middle-img-src']);
-
-const bottomH4 = document.querySelectorAll('.bottom-content h4');
-bottomH4[0].textContent = siteContent['main-content']['services-h4'];
-bottomH4[1].textContent = siteContent['main-content']['product-h4'];
-bottomH4[2].textContent = siteContent['main-content']['vision-h4'];
-
-const bottomP = document.querySelectorAll('.bottom-content p');
-bottomP[0].textContent = siteContent['main-content']['services-content'];
-bottomP[1].textContent = siteContent['main-content']['product-content'];
-bottomP[2].textContent = siteContent['main-content']['vision-content'];
 
 const contactHeader = document.querySelector('.contact h4');
 contactHeader.textContent = siteContent['contact']['contact-h4']
@@ -87,5 +96,62 @@ addressP[1].textContent = siteContent['contact']['phone'];
 addressP[2].textContent = siteContent['contact']['email'];
 
 const contact = document.querySelector('.contact');
-
 contact.nextElementSibling.textContent = siteContent['footer']['copyright']
+
+// STRETCH //
+const data = {
+  "nav": {
+    "nav-item-1": "Product",
+    "nav-item-2": "Services",
+    "nav-item-3": "About",
+    "nav-item-4": "Contact",
+    "nav-item-5": "Vision",
+    "nav-item-6": "Featured",
+  },
+  "cta": {
+    "h1": "DOM Is My Enemy",
+    "button": "Get Started",
+    "img-src": "img/header-img.png"
+  },
+  "main-content": {
+    "investors-h4":"Investors",
+    "investors-content": "Investors content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+  },
+  "contact": {
+    "contact-h4" : "Contact",
+    "address" : "321 Way 654 Street Anywhere, Japan",
+    "phone" : "1 (888) 888-8888",
+    "email" : "sales@greatidea.io",
+  },
+  "footer": {
+    "copyright" : "Copyright Great Idea! 2018"
+  },
+};
+btn.addEventListener('click',(e)=>{
+e.preventDefault();
+h1.textContent = data['cta']['h1'];
+addressP[0].textContent = data['contact']['address']
+//creating new content for top-content
+const top = document.body.querySelector('.top-content');
+const card = document.createElement('div');
+const heading = document.createElement('h4');
+const text = document.createElement('p');
+p[0].style.padding = '0px 20px 0px 0px'
+p[1].style.padding = '0px 20px 0px 0px'
+text.style.padding = '0px 20px 0px 0px'
+heading.textContent = data['main-content']['investors-h4'];
+text.textContent = data['main-content']['investors-content'];
+card.prepend(heading);
+card.append(text);
+top.appendChild(card);
+// updating styles on page
+mainImg.style.borderRadius = '15px'
+btn.style.borderRadius = '20px';
+contact.style.color = 'white';
+contact.style.backgroundColor = 'black';
+contact.style.width = '170px';
+contact.style.padding = '10px';
+contact.style.borderRadius = '15px';
+})
+
+
