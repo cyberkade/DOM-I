@@ -67,7 +67,8 @@ h1.innerHTML = 'DOM </br> Is </br> Awesome';
 
 const btn = document.querySelector('.cta-text button:nth-of-type(1)');
 btn.textContent = siteContent['cta']['button'];
-
+btn.style.borderRadius = '20px';
+// btn:hover.style.backgroundColor = 'red';
 
 const h4 = document.querySelectorAll('h4');
 h4[0].textContent = siteContent['main-content']['features-h4'];
@@ -146,12 +147,13 @@ card.append(text);
 top.appendChild(card);
 // updating styles on page
 mainImg.style.borderRadius = '15px'
-btn.style.borderRadius = '20px';
 contact.style.color = 'white';
 contact.style.backgroundColor = 'black';
 contact.style.width = '170px';
 contact.style.padding = '10px';
 contact.style.borderRadius = '15px';
+btn.classList.add('hide');
+myLink2.classList.add('hide');
 })
 
 
