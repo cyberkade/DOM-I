@@ -42,13 +42,6 @@ let logo = document.getElementById("logo-img");
 logo.setAttribute('src', siteContent["nav"]["img-src"])
 
 const navLinks = document.querySelectorAll('a');
-// navLinks[0].textContent = siteContent['nav']['nav-item-1']
-// navLinks[1].textContent = siteContent['nav']['nav-item-2']
-// navLinks[2].textContent = siteContent['nav']['nav-item-3']
-// navLinks[3].textContent = siteContent['nav']['nav-item-4']
-// navLinks[4].textContent = siteContent['nav']['nav-item-5']
-// navLinks[5].textContent = siteContent['nav']['nav-item-6']
-
 navLinks.forEach((item, index)=>  item.textContent = siteContent['nav'][`nav-item-${[index + 1]}`])
 
 const headerImg = document.querySelector('#cta-img');
@@ -81,3 +74,15 @@ const bottomP = document.querySelectorAll('.bottom-content p');
 bottomP[0].textContent = siteContent['main-content']['services-content'];
 bottomP[1].textContent = siteContent['main-content']['product-content'];
 bottomP[2].textContent = siteContent['main-content']['vision-content'];
+
+const contactHeader = document.querySelector('.contact h4');
+contactHeader.textContent = siteContent['contact']['contact-h4']
+
+const addressP = document.querySelectorAll('.contact p')
+addressP[0].textContent = siteContent['contact']['address'];
+addressP[1].textContent = siteContent['contact']['phone'];
+addressP[2].textContent = siteContent['contact']['email'];
+
+const contact = document.querySelector('.contact');
+
+contact.nextElementSibling.textContent = siteContent['footer']['copyright']
