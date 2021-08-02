@@ -1,14 +1,52 @@
 body {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: black;
+  color: white;
 }
-
 .digit {
   display: inline-block;
   font-size: 80px;
 }
-
 .redDigit {
   color: red;
+}
+div{
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+}
+button{
+  margin-top: 30px;
+  background: none;
+    color: white;
+    border: 2px solid;
+    padding: 1em 2em;
+    font-size: 1em;
+    transition: color .25s, border-color .25s, box-shadow .25s, transform .25s;
+}
+button:hover{
+  color: lightgreen;
+    border-color: lightgreen;
+    box-shadow: 0 0.5em 0.5em -0.4em lightgreen;
+    transform: translateY(-.25em);
+    cursor: pointer
+}
+.reset{
+  margin-top: 30px;
+  background: none;
+    color: white;
+    border: 2px solid;
+    padding: 1em 2em;
+    font-size: 1em;
+    transition: color .25s, border-color .25s, box-shadow .25s, transform .25s;
+}
+.reset:hover{
+  color: red;
+    border-color: red;
+    box-shadow: 0 0.5em 0.5em -0.4em red;
+    transform: translateY(-.25em);
+    cursor: pointer
 }

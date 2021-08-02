@@ -3,11 +3,15 @@ const secondTens = document.querySelector('#secondTens')
 const msTenths = document.querySelector('#msTens');
 const msHundredths = document.querySelector('#msHundreds');
 const colon = document.querySelector('#colon');
+const button = document.querySelector('button');
+const reset = document.querySelector('.reset')
 let totalSec = 0;
+let totalTens = 0;
 let totalTenths = 0;
 let totalHundredths = 0;
 
-
+button.addEventListener('click', ()=>{
+    button.disabled = true;
 const countTenths = setInterval(() => {
     totalTenths += 1
     msTenths.textContent = totalTenths;
@@ -16,7 +20,6 @@ const countTenths = setInterval(() => {
         totalTenths = 0;
     }
 }, 10);
-
 const countHund = setInterval(() => {
     totalHundredths += 1
     msHundredths.textContent = totalHundredths;
@@ -25,12 +28,12 @@ const countHund = setInterval(() => {
         totalHundredths = 0;
     }
 }, 100);
-
 const countSeconds = setInterval(() => {
     totalSec += 1;
     second.textContent = totalSec;
-    if(totalSec === 10){
-        secondTens.textContent = 1;
+    if(totalSec >= 10){
+        totalTens += 1;
+        secondTens.textContent = totalTens;
         second.textContent = 0;
         secondTens.classList.add('redDigit');
         second.classList.add('redDigit');
@@ -44,3 +47,21 @@ const countSeconds = setInterval(() => {
         msHundredths.textContent = '0';
     }
 }, 1000);
+});
+
+reset.addEventListener('click', ()=>{
+    button.disabled = false;
+    totalSec = 0;
+    totalTens = 0;
+    totalTenths = 0;
+    totalHundredths = 0;
+    second.textContent = '-';
+    secondTens.textContent = '-';
+    msTenths.textContent = '-';
+    msHundredths.textContent = '-';
+    secondTens.classList.remove('redDigit');
+    second.classList.remove('redDigit');
+    msTenths.classList.remove('redDigit');
+    msHundredths.classList.remove('redDigit');
+    colon.classList.remove('redDigit');
+});
