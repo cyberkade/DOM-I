@@ -10,7 +10,7 @@ let totalTens = 0;
 let totalTenths = 0;
 let totalHundredths = 0;
 
-button.addEventListener('click', ()=>{
+button.addEventListener('click', (e)=>{
     button.disabled = true;
 const countTenths = setInterval(() => {
     totalTenths += 1
@@ -31,7 +31,14 @@ const countHund = setInterval(() => {
 const countSeconds = setInterval(() => {
     totalSec += 1;
     second.textContent = totalSec;
-    if(totalSec >= 10){
+    if(totalSec === 10){
+        second.textContent = 0;
+        totalSec = 0;
+    }
+}, 1000);
+const countTens = setInterval(() => {
+
+        button.disabled = false;
         totalTens += 1;
         secondTens.textContent = totalTens;
         second.textContent = 0;
@@ -43,14 +50,14 @@ const countSeconds = setInterval(() => {
         clearInterval(countSeconds);
         clearInterval(countTenths);
         clearInterval(countHund);
+        clearInterval(countTens);
         msTenths.textContent = '0';
         msHundredths.textContent = '0';
-    }
-}, 1000);
+    
+}, 10000);
 });
 
 reset.addEventListener('click', ()=>{
-    button.disabled = false;
     totalSec = 0;
     totalTens = 0;
     totalTenths = 0;
@@ -64,4 +71,8 @@ reset.addEventListener('click', ()=>{
     msTenths.classList.remove('redDigit');
     msHundredths.classList.remove('redDigit');
     colon.classList.remove('redDigit');
+    clearInterval(countSeconds);
+    clearInterval(countTenths);
+    clearInterval(countHund);
+    clearInterval(countTens);
 });
